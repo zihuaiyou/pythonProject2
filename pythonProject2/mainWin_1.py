@@ -1,7 +1,7 @@
 #
 # -*- coding: utf-8 -*-
 # # Created by: PyQt5 version 5.15.1 Author:zihuaiyou
-#
+# 厚层控底加砂优化软件
 import sys
 from PyQt5.QtWidgets import *
 import mainWin_1_UI
@@ -10,6 +10,7 @@ import mainWin_1_UI_child
 from func import *
 from scipy.optimize import fsolve
 import numpy as np
+from openpyxl import Workbook
 
 # # 断裂韧性
 # toughness = ""
@@ -96,20 +97,46 @@ class myMainWindow(QMainWindow, mainWin_1_UI.Ui_MainWindow):
                     ((3 * THICK - x) / 2) * np.sqrt(2 * THICK - (x ** 2)) - F * np.arcsin(1 - (x / THICK)) + H) - L
 
         # 隔板厚度
-        inter_thick = fsolve(func, [4])
-        print(A, B, C, F, H, L)
-        print(inter_thick)
-
-    # 子界面 输出隔板设计参数
+        # inter_thick = fsolve(func, [4])
+        # print(A, B, C, F, H, L)
+        # print(inter_thick)
 
 
+# 子界面 输出隔板设计参数
 class myChildWindow(QWidget, mainWin_1_UI_child.Ui_Form):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
 
+    # 加砂优化按钮
     def showData(self):
-        pass
+        # 保存为xlsx文件
+        sand_size = str_list[-1].split("、")[0]
+        file = QFileDialog.getSaveFileName(self, "另存为", ".", "excel(*.xlsx)")
+        wb = Workbook()
+        ws = wb.active
+        # 添加数据文件标题
+        ws['A1'] = "加砂优化结果" + " " + "粒径: " + sand_size
+        # ws['A2'] = s2
+        list_name = ['排量', '静置时间', '砂量', '段塞个数', '砂比']
+        ws.append(list_name)
+        list1 = [4, 40, '公式', 5, '6%~10%']
+        list2 = [4, 20, '公式', 5, '6%~10%']
+        list3 = [3, 40, '公式', 5, '6%~10%']
+        list4 = [3, 20, '公式', 5, '6%~10%']
+        list5 = [2, 40, '公式', 5, '6%~10%']
+        list6 = [2, 20, '公式', 5, '6%~10%']
+        list7 = [1, 40, '公式', 5, '6%~10%']
+        list8 = [1, 20, '公式', 5, '6%~10%']
+        ws.append(list1)
+        ws.append(list2)
+        ws.append(list3)
+        ws.append(list4)
+        ws.append(list5)
+        ws.append(list6)
+        ws.append(list7)
+        ws.append(list8)
+        wb.save(filename=file[0])
 
 
 if __name__ == '__main__':

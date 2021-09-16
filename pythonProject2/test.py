@@ -10,12 +10,15 @@
 # print(math.asin(1)==math.pi/2)
 # print(1/math.sqrt(9))
 # print(""or '123')
-from scipy.optimize import fsolve
-import numpy as np
 
-# 按格式要求定义我们需要求的函数
-def f(x):
-    return np.arcsin(x) - x
-# 调用fsolve函数
-sol_fsolve = fsolve(f, [0]) # 第一个参数为我们需要求解的方程，第二个参数为方程解的估计值
-print(sol_fsolve)
+# from scipy.optimize import fsolve
+# import numpy as np
+#
+# # 按格式要求定义我们需要求的函数
+# def f(x):
+#     return np.arcsin(x) - x
+# # 调用fsolve函数
+# sol_fsolve = fsolve(f, [0]) # 第一个参数为我们需要求解的方程，第二个参数为方程解的估计值
+# print(sol_fsolve)
+
+print('123、456'.split('、'))

@@ -54,7 +54,7 @@
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="lineEdit_toughness"/>
+          <widget class="QLineEdit" name="lineEdit_resh"/>
          </item>
          <item row="1" column="0">
           <spacer name="verticalSpacer_5">
@@ -82,7 +82,7 @@
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QLineEdit" name="lineEdit_res_stress"/>
+          <widget class="QLineEdit" name="lineEdit_Q"/>
          </item>
          <item row="3" column="0">
           <spacer name="verticalSpacer_6">
@@ -110,7 +110,7 @@
           </widget>
          </item>
          <item row="4" column="1">
-          <widget class="QLineEdit" name="lineEdit_inter_stress"/>
+          <widget class="QLineEdit" name="lineEdit_E"/>
          </item>
          <item row="5" column="0">
           <spacer name="verticalSpacer_7">
@@ -138,7 +138,7 @@
           </widget>
          </item>
          <item row="6" column="1">
-          <widget class="QLineEdit" name="lineEdit_liq_stress"/>
+          <widget class="QLineEdit" name="lineEdit_v"/>
          </item>
         </layout>
        </widget>
@@ -149,10 +149,7 @@
          <string/>
         </property>
         <layout class="QFormLayout" name="formLayout_2">
-         <item row="0" column="1">
-          <widget class="QLineEdit" name="lineEdit_res_thick"/>
-         </item>
-         <item row="2" column="0">
+         <item row="0" column="0">
           <widget class="QLabel" name="label_11">
            <property name="font">
             <font>
@@ -165,50 +162,10 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
-          <widget class="QLineEdit" name="lineEdit_height_ratio"/>
-         </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="label_12">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>支撑剂粒径</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="QLineEdit" name="lineEdit_frac_len"/>
-         </item>
-         <item row="6" column="0">
-          <widget class="QLabel" name="label_13">
-           <property name="font">
-            <font>
-             <pointsize>12</pointsize>
-            </font>
-           </property>
-           <property name="text">
-            <string>压裂时间</string>
-           </property>
-          </widget>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_filt"/>
          </item>
          <item row="1" column="0">
-          <spacer name="verticalSpacer">
-           <property name="orientation">
-            <enum>Qt::Vertical</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>20</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="3" column="0">
           <spacer name="verticalSpacer_2">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -221,7 +178,38 @@
            </property>
           </spacer>
          </item>
-         <item row="5" column="0">
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_12">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>支撑剂粒径</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="comboBox_size">
+           <item>
+            <property name="text">
+             <string>40/70</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>70/140</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>40/70-70/140</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="3" column="0">
           <spacer name="verticalSpacer_3">
            <property name="orientation">
             <enum>Qt::Vertical</enum>
@@ -234,11 +222,23 @@
            </property>
           </spacer>
          </item>
-         <item row="6" column="1">
-          <widget class="QComboBox" name="comboBox">
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_13">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>压裂时间</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QComboBox" name="comboBox_time">
            <item>
             <property name="text">
-             <string>20min</string>
+             <string>60min</string>
             </property>
            </item>
            <item>
@@ -248,23 +248,23 @@
            </item>
            <item>
             <property name="text">
-             <string>60min</string>
+             <string>20min</string>
             </property>
            </item>
           </widget>
          </item>
-         <item row="0" column="0">
-          <widget class="QLabel" name="label_14">
-           <property name="font">
-            <font>
-             <family>新宋体</family>
-             <pointsize>12</pointsize>
-            </font>
+         <item row="5" column="0">
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
            </property>
-           <property name="text">
-            <string>压裂液粘度</string>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
            </property>
-          </widget>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -310,8 +310,25 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>confirm()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>633</x>
+     <y>279</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>483</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
-  <slot>modify()</slot>
+  <slot>confirm()</slot>
  </slots>
 </ui>
